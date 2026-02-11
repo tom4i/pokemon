@@ -1,0 +1,23 @@
+query SearchPokemon($name: String!) {
+    species: pokemonspecies(
+        where: {name: {_ilike: $name}}
+    ) {
+        id
+        name
+        capture_rate
+        pokemoncolor {
+            id
+            name
+        }
+        pokemons {
+            id
+            name
+            pokemonabilities {
+                id
+                ability {
+                    name
+                }
+            }
+        }
+    }
+}
